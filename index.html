@@ -868,6 +868,22 @@
             margin-top: 0.5rem;
         }
         
+        /* Cursor Effect */
+        .cursor-glow {
+            position: fixed;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.3;
+            transform: translate(-50%, -50%);
+            mix-blend-mode: screen;
+            filter: blur(10px);
+            transition: transform 0.1s ease;
+        }
+        
         /* Media Queries */
         @media (max-width: 992px) {
             .hero h1 {
@@ -1224,6 +1240,9 @@
         </div>
     </section>
     
+    <!-- Cursor Glow Effect -->
+    <div class="cursor-glow" id="cursor-glow"></div>
+    
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
@@ -1347,6 +1366,35 @@
                     mobileMenu.classList.remove('active');
                     document.body.style.overflow = 'auto';
                 });
+            });
+            
+            // Cursor Glow Effect
+            const cursorGlow = document.getElementById('cursor-glow');
+            
+            document.addEventListener('mousemove', function(e) {
+                cursorGlow.style.left = e.clientX + 'px';
+                cursorGlow.style.top = e.clientY + 'px';
+                
+                // Optional: Change size on links
+                const isOverLink = e.target.tagName === 'A' || e.target.tagName === 'BUTTON';
+                if (isOverLink) {
+                    cursorGlow.style.width = '50px';
+                    cursorGlow.style.height = '50px';
+                    cursorGlow.style.opacity = '0.5';
+                } else {
+                    cursorGlow.style.width = '30px';
+                    cursorGlow.style.height = '30px';
+                    cursorGlow.style.opacity = '0.3';
+                }
+            });
+            
+            // Hide cursor glow when cursor leaves the window
+            document.addEventListener('mouseout', function() {
+                cursorGlow.style.opacity = '0';
+            });
+            
+            document.addEventListener('mouseover', function() {
+                cursorGlow.style.opacity = '0.3';
             });
             
             // Form Submission
