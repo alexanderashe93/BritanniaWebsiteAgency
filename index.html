@@ -469,6 +469,147 @@
             left: 0;
         }
         
+        /* Portfolio Section */
+        .portfolio {
+            padding: 6rem 0;
+            background-color: var(--card);
+            transition: background-color 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .portfolio::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(58, 134, 255, 0.03), rgba(255, 0, 110, 0.03));
+            bottom: -250px;
+            right: -250px;
+            z-index: 0;
+        }
+        
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .portfolio-card {
+            background-color: var(--bg);
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            position: relative;
+        }
+        
+        .portfolio-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .portfolio-image {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .portfolio-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .portfolio-card:hover .portfolio-image img {
+            transform: scale(1.05);
+        }
+        
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.7));
+            display: flex;
+            align-items: flex-end;
+            padding: 1.5rem;
+        }
+        
+        .portfolio-logo {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .portfolio-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .portfolio-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+        
+        .portfolio-description {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+        
+        .portfolio-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .portfolio-tag {
+            background: linear-gradient(135deg, rgba(58, 134, 255, 0.1), rgba(255, 0, 110, 0.1));
+            color: var(--primary);
+            padding: 0.25rem 0.75rem;
+            border-radius: 2rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        
+        .portfolio-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            margin-top: auto;
+        }
+        
+        .portfolio-link:hover {
+            color: var(--secondary);
+            gap: 0.75rem;
+        }
+        
         /* Features Section */
         .features {
             padding: 6rem 0;
@@ -994,6 +1135,7 @@
                 <div class="nav-links">
                     <a href="#services">Services</a>
                     <a href="#features">Why Choose Us</a>
+                    <a href="#portfolio">Our Work</a>
                     <a href="#contact">Contact</a>
                 </div>
                 
@@ -1154,6 +1296,78 @@
         </div>
     </section>
     
+    <!-- Portfolio Section -->
+    <section class="portfolio" id="portfolio">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Recent Work</h2>
+                <p class="section-subtitle">Take a look at some of our client projects that deliver results.</p>
+            </div>
+            
+            <div class="portfolio-grid">
+                <!-- Portfolio Item 1 -->
+                <div class="portfolio-card">
+                    <div class="portfolio-image">
+                        <img src="portfolio-1.jpg" alt="E-commerce Website">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-logo">SG</div>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3 class="portfolio-title">ServersGB</h3>
+                        <p class="portfolio-description">ServersGB provides high-quality IT equipment for businesses of all sizes. From servers to networking, we have everything you need for a robust infrastructure.</p>
+                        <div class="portfolio-tags">
+                            <span class="portfolio-tag">B2B</span>
+                            <span class="portfolio-tag">Hardware</span>
+                            <span class="portfolio-tag">IT Equipment</span>
+                        </div>
+                        <a href="https://www.serversgb.co.uk" target="_blank" class="portfolio-link">View Website <span>→</span></a>
+                    </div>
+                </div>
+                
+                <!-- Portfolio Item 2 -->
+                <div class="portfolio-card">
+                    <div class="portfolio-image">
+                        <img src="portfolio-2.jpg" alt="Restaurant Website">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-logo">VB</div>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3 class="portfolio-title">VB Electrical NW Ltd</h3>
+                        <p class="portfolio-description">Family-run electrical specialists serving Liverpool and the entire North West region with innovative, eco-friendly electrical services.</p>
+                        <div class="portfolio-tags">
+                            <span class="portfolio-tag">Services</span>
+                            <span class="portfolio-tag">Electrical</span>
+                            <span class="portfolio-tag">Mobile-First</span>
+                        </div>
+                        <a href="https://vbelectricalnw.co.uk" target="_blank" class="portfolio-link">View Website <span>→</span></a>
+                    </div>
+                </div>
+                
+                <!-- Portfolio Item 3 -->
+                <div class="portfolio-card">
+                    <div class="portfolio-image">
+                        <img src="portfolio-3.jpg" alt="Fitness Studio Website">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-logo">GT</div>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3 class="portfolio-title">GB Telecoms</h3>
+                        <p class="portfolio-description">GBTelecoms delivers reliable broadband, hosted telecoms and mobile connectivity solutions to UK businesses.</p>
+                        <div class="portfolio-tags">
+                            <span class="portfolio-tag">Services</span>
+                            <span class="portfolio-tag">B2B</span>
+                            <span class="portfolio-tag">Digital</span>
+                        </div>
+                        <a href="https://gbtelecoms.co.uk" target="_blank" class="portfolio-link">View Website <span>→</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
     <!-- CTA Section -->
     <section class="cta">
         <div class="container">
@@ -1276,6 +1490,7 @@
                         <li><a href="#">Home</a></li>
                         <li><a href="#services">Services</a></li>
                         <li><a href="#features">Why Us</a></li>
+                        <li><a href="#portfolio">Our Work</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
